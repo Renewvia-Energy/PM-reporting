@@ -1,7 +1,7 @@
 # Preventative Maintenance Reporting
 Renewvia built our own preventative maintenance reporting tool in house. Every week, each of our site agents is required to submit a Google Form containing pictures and status updates about their mini-grids. Then, we use Google Apps Script to send a summary of all of the issues reported by site agents to Renewvia's O&M staff. Thanks to Google's free form automation tools, this solution is entirely free.
 
-If you would like to hire Renewvia to implement a custom setup for you and your company's needs, please reach out at [mailto:info@renewvia.com](info@renewvia.com). This repository contains all the code we use and links to an example Google Form and corresponding Google Sheet so you can build it yourself.
+If you would like to hire Renewvia to implement a custom setup for you and your company's needs, please reach out at [info@renewvia.com](mailto:info@renewvia.com). This repository contains all the code we use and links to an example Google Form and corresponding Google Sheet so you can build it yourself.
 
 ## The PM Form
 An example of our PM form can be found at [https://forms.gle/GKedmUH1rCoEw44U7](https://forms.gle/GKedmUH1rCoEw44U7).
@@ -9,7 +9,7 @@ An example of our PM form can be found at [https://forms.gle/GKedmUH1rCoEw44U7](
 After copying the form for yourself, in the "Responses" tab, click "Link to Sheets."
 
 ## The Responses Workbook
-After you click "Link to Sheets," Google will generate a workbook in Sheets. Add at least two spreadsheets titled "Recent Delinquent Reports" and "Summary." Copy the content from the respective sheets in [https://docs.google.com/spreadsheets/d/1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ/edit?usp=sharing](this example workbook) to complete those sheets.
+After you click "Link to Sheets," Google will generate a workbook in Sheets. Add at least two spreadsheets titled "Recent Delinquent Reports" and "Summary." Copy the content from the respective sheets in [this example workbook](https://docs.google.com/spreadsheets/d/1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ/edit?usp=sharing) to complete those sheets.
 
 In the Recent Delinquent Reports worksheet, each row is a unique project site. After each site agent has completed at least one submission of the PM report form, the rows should match the options for the Site Name question in section 1 of the [form](https://forms.gle/GKedmUH1rCoEw44U7). The columns correspond to weeks, with each cell in the table reading "X" if and only if that site did not have a submission that week. You can use this table to track which sites' agents are completing their weekly reports.
 
@@ -25,7 +25,7 @@ Once you have completed creating the Responses workbook in Google Sheets, create
 - Sending reminders to site agents who have not yet completed their weekly report
 
 Note that you will need to make the following changes:
-1. In Line 3, replace `WORKBOOK_ID_HERE` with the ID of your Responses workbook from the previous section. The workbook ID can be found in the URL of the workbook. In this readme, we've been using [https://docs.google.com/spreadsheets/d/1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ/edit?usp=sharing](this example workbook) with URL https://docs.google.com/spreadsheets/d/1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ/edit?usp=sharing. For this workbook, the ID is `1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ`, so Line 3 would read `const WORKBOOK_ID = '1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ'`.
+1. In Line 3, replace `WORKBOOK_ID_HERE` with the ID of your Responses workbook from the previous section. The workbook ID can be found in the URL of the workbook. In this readme, we've been using [this example workbook](https://docs.google.com/spreadsheets/d/1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ/edit?usp=sharing) with URL https://docs.google.com/spreadsheets/d/1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ/edit?usp=sharing. For this workbook, the ID is `1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ`, so Line 3 would read `const WORKBOOK_ID = '1XlBYHHowUJ1oxT4PP82qm7UEG6sP-toCDGH4OPNttoQ'`.
 2. In Line 5, replace `email1@domain.com,email2@domain.com,email3@domain.com` with a comma-separated list of the emails of everyone who should receive a copy of the weekly summary reports.
 
 Note that the content of the emails sent by the script are hardcoded. Feel free to customize these as you see fit, e.g., replacing "Renewvia" with your company's name.
